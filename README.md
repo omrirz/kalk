@@ -8,6 +8,11 @@
 
 ### The simplest desktop calculator.
 
+## Download
+
+[Mac installer](https://github.com/omrirz/kalk/releases/download/v.0.0.0/kalk-0.0.0.dmg)
+
+
 ## Usage
 
 1. Once you launched the app hit cmd+5 to open Kalk.
