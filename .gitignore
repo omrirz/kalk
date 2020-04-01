@@ -1,0 +1,13 @@
+#OS system files
+[Tt]humbs.db
+*.DS_Store
+
+*.log
+
+# vscode settings
+.vscode/
+
+node_modules/
+dist/
+
+src/config.json

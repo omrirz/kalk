@@ -1,0 +1,85 @@
+@import url('opensans.css');
+@import url('common.css');
+
+textarea,
+input,
+button {
+	outline: none;
+	box-shadow: none !important;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	background: #FFFFFF;
+	margin: 0;
+	color: rgba(30, 30, 30, 1);
+	font-family: 'Open Sans', sans-serif;
+	height: 100%;
+	width: 100%;
+}
+
+.wrapper {
+	padding: 1em;
+	overflow: scroll;
+}
+
+.main-tab {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.tab-content {
+	flex: 1;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.tab-pane {
+	height: 100%;
+	padding: 1em;
+	overflow: auto;
+}
+
+.save-close-div {
+	align-self: center;
+}
+
+.about-content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.app-logo {
+	width: 6em;
+	height: 6em;
+	margin-bottom: 1em;
+}
+
+.settings-section {
+	margin-top: 2em;
+}
+
+.block {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.block-elem {
+	margin-bottom: 1em;
+}
+
+.number-input {
+	width: 70px;
+}

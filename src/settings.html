@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Kalkulator</title>
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./styles/style_settings.css">
+	<script>
+		if (typeof module === 'object') {
+			window.module = module;
+			module = undefined;
+		}
+	</script>
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<script>
+		if (window.module) module = window.module;
+	</script>
+</head>
+
+<body>
+	<div class="titlebar"></div>
+	<div class="wrapper">
+		<div class="main-tab">
+			<div class="d-flex justify-content-between align-items-center">
+				<nav>
+					<div class="nav nav-tabs" id="nav-tab" role="tablist">
+						<a class="nav-item nav-link active" id="nav-general-tab" data-toggle="tab" href="#nav-general"
+							role="tab" aria-controls="nav-general" aria-selected="true">General</a>
+						<a class="nav-item nav-link" id="nav-how-to-tab" data-toggle="tab" href="#nav-how-to" role="tab"
+							aria-controls="nav-how-to" aria-selected="false">How to</a>
+						<a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab"
+							aria-controls="nav-about" aria-selected="false">About</a>
+					</div>
+				</nav>
+				<div class="d-flex">
+					<button id="close-settings" type="button" class="btn btn-outline-dark btn-sm mr-2">Close
+						Settings</button>
+					<button id="close-app" type="button" class="btn btn-outline-danger btn-sm">Quit Kalk</button>
+				</div>
+			</div>
+			<div class="tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="nav-general" role="tabpanel"
+					aria-labelledby="nav-general-tab">
+					<div>
+						<h3> Kalk size </h3>
+						<div class="block">
+							<div class="block-elem">
+								<label for="width" class="col-sm-1 col-form-label form-control-sm">Width:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" id="kalk-width"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<label for="height" class="col-sm-1 col-form-label form-control-sm">Height:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" id="kalk-height"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<button type="button" id="reset-window-size-to-original"
+									class="btn btn-outline-primary form-control-sm btn-sm ml-4">reset window size to
+									original</button>
+							</div>
+						</div>
+						<!-- <div class="block">
+							<button type="button" id="set-current-size-as-default" class="block-elem btn btn-outline-primary form-control-sm btn-sm ml-2">set current window size as default</button>
+							<button type="button" id="reset-window-size-to-original" class="block-elem btn btn-outline-primary form-control-sm btn-sm ml-4">reset window size to original</button>
+						</div> -->
+					</div>
+					<div class="settings-section">
+						<h3> Kalk position </h3>
+						<div class="form-check mb-2">
+							<input type="checkbox" class="form-check-input" id="window-always-on-top">
+							<label class="form-check-label" for="window-always-on-top"> Window always on top </label>
+						</div>
+						<div class="form-check mb-2">
+							<input type="checkbox" class="form-check-input" id="window-visible-on-all-workspaces">
+							<label class="form-check-label" for="window-visible-on-all-workspaces"> Window visible in
+								all workspaces </label>
+						</div>
+						<div class="block">
+							<!-- <button type="button" id="set-current-pos-as-default" class="block-elem btn btn-outline-primary form-control-sm btn-sm ml-2">set current window position as default</button> -->
+							<button type="button" id="reset-window-pos-to-original"
+								class="block-elem btn btn-outline-primary form-control-sm btn-sm">reset window position
+								to original</button>
+						</div>
+					</div>
+					<div class="settings-section">
+						<h3> Font size </h3>
+						<div class="block">
+							<div class="block-elem">
+								<label for="font-size" class="col-sm-1 col-form-label form-control-sm">Pixels:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" id="font-size"
+									class="form-control form-control-sm number-input ml-2">
+							</div>
+							<div class="block-elem">
+								<button type="button" id="reset-font-size-to-original"
+									class="btn btn-outline-primary form-control-sm btn-sm ml-4">reset font size to
+									original</button>
+							</div>
+						</div>
+					</div>
+					<div class="settings-section">
+						<h3> Kalk colors </h3>
+						<h6> Background color </h6>
+						<div class="block">
+							<div class="block-elem">
+								<label for="background-color-red"
+									class="col-sm-1 col-form-label form-control-sm">R:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="background-color-red"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<label for="background-color-green"
+									class="col-sm-1 col-form-label form-control-sm">G:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="background-color-green"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<label for="background-color-blue"
+									class="col-sm-1 col-form-label form-control-sm">B:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="background-color-blue"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<button type="button" id="reset-background-color-to-original"
+									class="btn btn-outline-primary form-control-sm btn-sm ml-4">reset background color
+									to original</button>
+							</div>
+						</div>
+						<h6> Input font color </h6>
+						<div class="block">
+							<div class="block-elem">
+								<label for="input-color-red" class="col-sm-1 col-form-label form-control-sm">R:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="input-color-red"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<label for="input-color-green"
+									class="col-sm-1 col-form-label form-control-sm">G:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="input-color-green"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<label for="input-color-blue" class="col-sm-1 col-form-label form-control-sm">B:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="input-color-blue"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<button type="button" id="reset-input-color-to-original"
+									class="btn btn-outline-primary form-control-sm btn-sm ml-4">reset input color to
+									original</button>
+							</div>
+						</div>
+						<h6> Result font color </h6>
+						<div class="block">
+							<div class="block-elem">
+								<label for="result-color-red" class="col-sm-1 col-form-label form-control-sm">R:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="result-color-red"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<label for="result-color-green"
+									class="col-sm-1 col-form-label form-control-sm">G:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="result-color-green"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<label for="result-color-blue"
+									class="col-sm-1 col-form-label form-control-sm">B:</label>
+							</div>
+							<div class="block-elem">
+								<input type="number" step="1" min="0" max="255" id="result-color-blue"
+									class="form-control form-control-sm number-input">
+							</div>
+							<div class="block-elem">
+								<button type="button" id="reset-result-color-to-original"
+									class="btn btn-outline-primary form-control-sm btn-sm ml-4">reset result color to
+									original</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="nav-how-to" role="tabpanel" aria-labelledby="nav-how-to-tab">
+					<h3 class="mb-4"> Shortcuts </h3>
+					<p> 1. Press <span id="shortuct_listener"> 'Command+5' </span> to show and hide Kalk. </p>
+					<p> 2. While typing click <span id="error_listener"> 'alt' </span> to view parsing errors. </p>
+				</div>
+				<div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+					<div class="about-content">
+						<img class="app-logo" class="img-responsive" src="./assets/logo.png" alt="logo">
+						<h1>Kalk</h1>
+						<p>The simplest desktop calculator.</p>
+						<p>Made by Omri Rozenzaft.</p>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/omrirz/Kalk"
+							class="nav-link">
+							<img src="./assets/GitHub-Mark-32px.png" alt=""> view source on Github</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+<script>
+	require('./renderer_settings.js')
+</script>
+
+</html>

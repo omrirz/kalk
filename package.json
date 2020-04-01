@@ -1,0 +1,39 @@
+{
+  "name": "kalk",
+  "version": "0.0.0",
+  "description": "Calculator for desktop",
+  "author": "omrirz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omrirz/Kalk"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "clean": "rm -rf ./dist",
+    "pack": "electron-builder --dir",
+    "dist": "npm run clean && electron-builder"
+  },
+  "build": {
+    "appId": "BenderRodriguez",
+    "mac": {
+      "category": "Calculator"
+    }
+  },
+  "devDependencies": {
+    "asar": "^3.0.3",
+    "electron": "8.0.2",
+    "electron-builder": "^22.3.2",
+    "electron-installer-dmg": "^3.0.0",
+    "electron-packager": "^14.2.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "mathjax-electron": "^3.0.0",
+    "mathjs": "^5.10.3",
+    "popper.js": "^1.16.1"
+  }
+}

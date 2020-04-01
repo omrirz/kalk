@@ -1,0 +1,95 @@
+@import url('opensans.css');
+@import url('common.css');
+textarea,
+input,
+button {
+	outline: none;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background: rgba(40, 44, 52, 1);
+	margin: 0;
+	color: rgba(240, 240, 240, 1);
+	color: rgba(171, 178, 191, 1);
+	font-family: 'Open Sans', sans-serif;
+	height: 100%;
+}
+
+.wrapper {
+	padding: 1em;
+	height: 100%;
+}
+
+.main-input {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#main-input-span {
+	margin-bottom: 0;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#main-input-input {
+	margin-left: 10px;
+	height: 40px;
+	background: rgba(40, 44, 52, 1);
+	color: rgba(240, 240, 240, 1);
+	color: rgba(171, 178, 191, 1);
+	font-size: 1.21em;
+	border: 0;
+	flex: 1;
+	letter-spacing: 0.05em;
+}
+
+#main-result {
+	font-size: 1.21em;
+	color: rgba(76, 217, 100, 1);
+	color: rgba(103, 243, 108, 1);
+	margin-top: 1em;
+	text-align: center;
+}
+
+#footer {
+	position: absolute;
+	/* left: 50%; */
+	/* transform: translateX(-50%); */
+	width: Calc(100% - 2em);
+	bottom: 18px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#settings-button {
+	width: 20px;
+	height: 20px;
+	align-self: flex-end;
+	/* position: absolute;
+	left: 10px;
+	bottom: 10px; */
+}
+
+#main-error {
+	font-size: 14px;
+	color: rgba(255, 59, 48, 1);
+	color: #721c24;
+	visibility: hidden;
+	margin-bottom: 0;
+	/* display: none; */
+	/* position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 10px; */
+}

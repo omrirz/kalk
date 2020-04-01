@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title> Kalk </title>
+	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../lib/katex/katex.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./styles/style.css">
+	<script>
+			if (typeof module === 'object') {
+				window.module = module;
+				module = undefined;
+			}
+		</script>
+		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../lib/katex/katex.min.js" crossorigin="anonymous"></script>
+		<script>
+			if (window.module) module = window.module;
+		</script>
+
+</head>
+
+<body>
+	<div class="titlebar"></div>
+	<div class="wrapper">
+		<div class="main-input ui-block">
+			<label id="main-input-span">>></label>
+			<input id="main-input-input" type="text" autofocus>
+		</div>
+		<div id="pretty" class="ui-block"></div>
+		<div id="main-result" class="ui-block"></div>
+		<div id="footer">
+			<input id="settings-button" type="image" src="./assets/settings.png" />
+			<div id="main-error" class="alert alert-danger" role="alert">
+				error block
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	require('./renderer.js')
+</script>
+
+</html>
