@@ -23,10 +23,16 @@
 
 ## Development
 
-`$ npm start`
+```console
+$ git clone https://github.com/omrirz/kalk.git
+$ cd kalk && npm install
+$ npm start
+```
 
 ## Build
 
-`$ npm run dist`
+```console
+$ npm run dist
+```
 
 will create a DMG for mac
