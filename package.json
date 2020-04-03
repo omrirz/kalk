@@ -1,6 +1,6 @@
 {
-  "name": "Kalk",
-  "version": "0.0.0",
+  "name": "kalk",
+  "version": "0.0.1",
   "description": "Calculator for desktop",
   "author": "omrirz",
   "license": "MIT",
@@ -12,8 +12,7 @@
   "scripts": {
     "start": "electron .",
     "clean": "rm -rf ./dist && rm -rf ./src/config.json",
-    "pack": "electron-builder --dir",
-    "dist:mac": "npm run clean && electron-builder --dir",
+    "dist:mac": "npm run clean && electron-builder",
     "dist:win": "npm run clean && electron-builder --win --x64"
   },
   "build": {
@@ -22,7 +21,7 @@
       "icon": "icon.icns",
       "category": "Calculator"
     },
-    "asar":false,
+    "asar": false,
     "directories": {
       "output": "dist",
       "buildResources": "build"
@@ -38,12 +37,11 @@
       "uninstallerIcon": "icon.ico",
       "runAfterFinish": true
     }
-
   },
   "devDependencies": {
     "asar": "^3.0.3",
     "electron": "8.0.2",
-    "electron-builder": "^22.3.2",
+    "electron-builder": "^22.4.1",
     "electron-installer-dmg": "^3.0.0",
     "electron-packager": "^14.2.1"
   },

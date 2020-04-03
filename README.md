@@ -10,9 +10,9 @@
 
 ## Download
 
-[Mac installer](https://github.com/omrirz/kalk/releases/download/v.0.0.0/kalk-0.0.0.dmg)
+[Mac installer](https://github.com/omrirz/kalk/releases/download/v.0.0.1/kalk-0.0.1.dmg)
 
-[Windows installer](https://github.com/omrirz/kalk/releases/download/v.0.0.0/Kalk.Setup.0.0.0.exe)
+[Windows installer](https://github.com/omrirz/kalk/releases/download/v.0.0.1/kalk.Setup.0.0.1.exe)
 
 ## Usage
 
@@ -32,8 +32,18 @@ npm start
 
 ## Build
 
+### Mac
+
 ```console
-npm run dist
+npm run dist:mac
 ```
 
 will create a DMG for mac
+
+### Windows
+
+```console
+npm run dist:win
+```
+
+will create an installer for windows
