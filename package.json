@@ -1,5 +1,5 @@
 {
-  "name": "kalk",
+  "name": "Kalk",
   "version": "0.0.0",
   "description": "Calculator for desktop",
   "author": "omrirz",
@@ -13,13 +13,32 @@
     "start": "electron .",
     "clean": "rm -rf ./dist && rm -rf ./src/config.json",
     "pack": "electron-builder --dir",
-    "dist": "npm run clean && electron-builder"
+    "dist:mac": "npm run clean && electron-builder --dir",
+    "dist:win": "npm run clean && electron-builder --win --x64"
   },
   "build": {
     "appId": "BenderRodriguez",
     "mac": {
+      "icon": "icon.icns",
       "category": "Calculator"
+    },
+    "asar":false,
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "runAfterFinish": true
     }
+
   },
   "devDependencies": {
     "asar": "^3.0.3",

@@ -17,7 +17,7 @@ module.exports = class ConfigManager {
 			this.cfg.show_window_settings = true
 		} else {
 			this.cfg.mode = 'prod'
-			this.cfg.show_window = false
+			this.cfg.show_window = true
 			this.cfg.show_window_settings = false
 		}
 	}

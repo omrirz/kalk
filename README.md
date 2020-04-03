@@ -12,6 +12,7 @@
 
 [Mac installer](https://github.com/omrirz/kalk/releases/download/v.0.0.0/kalk-0.0.0.dmg)
 
+[Windows installer](https://github.com/omrirz/kalk/releases/download/v.0.0.0/Kalk.Setup.0.0.0.exe)
 
 ## Usage
 
