@@ -11,7 +11,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "clean": "rm -rf ./dist",
+    "clean": "rm -rf ./dist && rm -rf ./src/config.json",
     "pack": "electron-builder --dir",
     "dist": "npm run clean && electron-builder"
   },

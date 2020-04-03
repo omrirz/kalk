@@ -93,10 +93,12 @@ const default_cfg = {
 		color: '#FFFFFF'
 	},
 	shortuct_listener: {
-		default: 'Command+5',
-		shortcut: 'Command+5',
-		default_linux_win: 'Alt+5',
-		shortcut_linux_win: 'Alt+5',
+		default: {
+			mac: 'Command+5',
+			windows: 'Alt+5'
+	
+		},
+		shortcut: ''
 
 	},
 	mode: null,

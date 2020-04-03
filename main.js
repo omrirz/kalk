@@ -16,6 +16,7 @@ const url = require('url')
 const _ = require('lodash')
 
 let ConfigManager = require('./src/config_manager')
+let computeWinPosDefualt = require('./src/positioner')
 
 // template for menu for copy, paste etc.
 const template = require('./src/app_menu').template
@@ -56,12 +57,6 @@ ipc.on('updateSettings', (event, to_update, opt) => {
       cfg.win_sz = JSON.parse(JSON.stringify(cfg.win_sz_default))
       win.setSize(cfg.win_sz_default.width, cfg.win_sz_default.height)
     }
-    if (opt[key] === 'window-always-on-top') {
-      cfg.win_pos_use_default_pos = JSON.parse(JSON.stringify(cfg.result_font_color.default))
-    }
-    if (opt[key] === 'window-visible-on-all-workspaces') {
-      cfg.result_font_color.color = JSON.parse(JSON.stringify(cfg.result_font_color.default))
-    }
     if (opt[key] === 'set-current-pos-as-default') {
       let new_pos = (({ x, y }) => ({ x, y }))(win.getBounds())
       cfg.win_pos = new_pos
@@ -92,9 +87,13 @@ ipc.on('updateSettings', (event, to_update, opt) => {
 })
 
 if (process.platform === 'darwin') {
+  cfg.shortuct_listener.shortcut = cfg.shortuct_listener.default.mac
   if (cfg.mode !== 'dev') {
     app.dock.hide()
   }
+}
+if (process.platform === 'win32') {
+  cfg.shortuct_listener.shortcut = cfg.shortuct_listener.default.windows
 }
 
 const getIconPath = () => {
@@ -119,17 +118,7 @@ app.on('ready', () => {
 
   cfg.screen_details = electron.screen.getPrimaryDisplay().workArea
 
-  // set tray position (TODO: fix on windows to be on the bottom)
-  if (cfg.tray_pos.y !== 0) {
-    cfg.tray_pos.y = 0
-  }
-  if ((cfg.tray_pos.x + cfg.win_sz.width) > cfg.screen_details.width) {
-    cfg.tray_pos.x = cfg.screen_details.width - cfg.win_sz.width
-  }
-
-  // set default position for kalk window
-  cfg.win_pos_default.x = cfg.tray_pos.x - _.floor((cfg.win_sz.width) / 2) - 8
-  cfg.win_pos_default.y = cfg.tray_pos.y
+  cfg.win_pos_default = computeWinPosDefualt(cfg)
 
   // set window position to default
   if (cfg.win_pos_use_default_pos) {
@@ -138,7 +127,7 @@ app.on('ready', () => {
   }
 
   // tooltip for hovering the app icon
-  tray.setToolTip('Awesome Kalkulator')
+  tray.setToolTip('Kalk')
 
   // show window on click
   tray.on('click', () => {
