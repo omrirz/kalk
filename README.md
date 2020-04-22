@@ -16,7 +16,9 @@
 
 ## Usage
 
-1. Once you launched the app hit cmd+5 to open Kalk.
+1. Once you launched the app hit Cmd+5 (Mac) ot Alt+5 (Linux, Windows) to open Kalk.
+(You can also use the menubar button to show Kalk. double-click on Ubuntu)
+
 2. Start typing and Kalk will compute the result as you go.
 3. At the bottom left corner there is a settings button. Use it!
 
@@ -40,10 +42,18 @@ npm run dist:mac
 
 will create a DMG for mac
 
+### Linux
+
+```console
+npm run dist:linux
+```
+
+will create an AppImage for Linux
+
 ### Windows
 
 ```console
-npm run dist:win
+npm run dist:windows
 ```
 
 will create an installer for windows
