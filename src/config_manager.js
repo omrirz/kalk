@@ -3,7 +3,11 @@ const path = require('path')
 
 module.exports = class ConfigManager {
 	constructor(opt) {
-		this.cfg_file_name = path.join(__dirname, 'config.json')
+		this.settings_dir = path.join(require('os').homedir(), '.kalk')
+		if (!fs.existsSync(this.settings_dir)){
+			fs.mkdirSync(this.settings_dir);
+		}
+		this.cfg_file_name = path.join(this.settings_dir, 'config.json')
 		if (!fs.existsSync(this.cfg_file_name)) {
 			this.cfg = JSON.parse(JSON.stringify(default_cfg))
 			this.save(this.cfg)
@@ -95,11 +99,11 @@ const default_cfg = {
 	shortuct_listener: {
 		default: {
 			mac: 'Command+5',
-			windows: 'Alt+5'
-	
+			windows: 'Alt+5',
+			linux: 'Alt+5'
 		},
-		shortcut: ''
-
+		shortcut: 'Alt+5'
+	
 	},
 	mode: null,
 	show_window: false,
