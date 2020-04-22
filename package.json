@@ -1,8 +1,9 @@
 {
   "name": "kalk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Calculator for desktop",
   "author": "omrirz",
+  "email": "omrirz@gmail.com",
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -232,6 +232,10 @@ app.on('ready', () => {
 
 })
 
+app.on('before-quit', () => {
+  tray.destroy();
+});
+
 app.on('will-quit', () => {
   // Unregister a shortcut.
   globalShortcut.unregister(cfg.shortuct_listener.shortcut)
