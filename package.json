@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "mathjax-electron": "^3.0.0",
     "mathjs": "^5.10.3",
