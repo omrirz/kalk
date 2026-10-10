@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="katex/katex.min.css">
+<script src="katex/katex.min.js"></script>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        overflow: hidden;
+        -webkit-user-select: none;
+        cursor: default;
+    }
+    #pretty {
+        display: inline-block;
+        min-width: 100%;
+        text-align: center;
+    }
+    .katex-display {
+        margin: 0;
+        padding: 2px 0;
+    }
+</style>
+</head>
+<body>
+<div id="pretty"></div>
+<script>
+    // Called from Swift with the TeX from mathjs, a CSS color and the font size in points.
+    function render(tex, color, fontSize) {
+        var container = document.getElementById('pretty');
+        container.style.color = color;
+        container.style.fontSize = fontSize + 'px';
+        if (tex) {
+            // mathjs ends every matrix row with \\, which KaTeX draws as an extra empty row.
+            tex = tex.replace(/\\\\\s*\\end\{bmatrix\}/g, '\\end{bmatrix}');
+            try {
+                katex.render(tex, container, { displayMode: true, throwOnError: false });
+            } catch (error) {
+                container.textContent = '';
+            }
+        } else {
+            container.textContent = '';
+        }
+        var height = tex ? Math.ceil(container.getBoundingClientRect().height) : 0;
+        window.webkit.messageHandlers.size.postMessage(height);
+    }
+</script>
+</body>
+</html>
